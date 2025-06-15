@@ -17,7 +17,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__S6Xspace-panels__/graphics/panel_north.png",
+            filename = "__space-panels__/graphics/panel_north.png",
             priority = "high",
             width = 480,
             height = 960,
@@ -29,7 +29,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__S6Xspace-panels__/graphics/panel_east.png",
+            filename = "__space-panels__/graphics/panel_east.png",
             priority = "high",
             width = 960,
             height = 480,
@@ -41,7 +41,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__S6Xspace-panels__/graphics/panel_south.png",
+            filename = "__space-panels__/graphics/panel_south.png",
             priority = "high",
             width = 480,
             height = 960,
@@ -53,7 +53,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__S6Xspace-panels__/graphics/panel_west.png",
+            filename = "__space-panels__/graphics/panel_west.png",
             priority = "high",
             width = 960,
             height = 480,
@@ -70,7 +70,7 @@ local function create_directional_panel(cdir)
 	panel.fast_replaceable_group = "space-solar-panel"
 	panel.localised_name = { "entity-name.space-solar-panel" }
 	panel.localised_description = { "entity-description.space-solar-panel" }
-	panel.icon = "__S6Xspace-panels__/graphics/panel-icon.png"
+	panel.icon = "__space-panels__/graphics/panel-icon.png"
     panel.icon_size = 256
 	panel.impact_category = "metal"
 	panel.max_health = 50
@@ -110,13 +110,13 @@ data.extend{
           {type = "item", name = "low-density-structure", amount = 5}
         },
         results = {{type="item", name="space-solar-panel", amount=1}},
-        icon = "__S6Xspace-panels__/graphics/panel-icon.png",
+        icon = "__space-panels__/graphics/panel-icon.png",
         icon_size = 256,
     },
     {
     type = "item",
     name = "space-solar-panel",
-    icon = "__S6Xspace-panels__/graphics/panel-icon.png",
+    icon = "__space-panels__/graphics/panel-icon.png",
     icon_size = 256,
     subgroup = "space-platform",
     order = "d[solar-panel]-a[space-solar-panel]",
@@ -129,7 +129,7 @@ data.extend{
     {
         type = "electric-energy-interface",
         name = "space-solar-panel",
-        icon = "__S6Xspace-panels__/graphics/panel-icon.png",
+        icon = "__space-panels__/graphics/panel-icon.png",
         icon_size = 256,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 0.1, result = "space-solar-panel"},
