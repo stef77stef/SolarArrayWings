@@ -1,0 +1,10 @@
+{
+  "name": "space-panels",
+  "version": "1.0.1",
+  "title": "Solar Array Wings",
+  "author": "Michael Michael",
+  "factorio_version": "2.0",
+  "dependencies": ["base >= 2.0.0", "space-age >= 2.0.0"],
+  "description": "Solar Array Wings for your space stations! Save on foundations, and use S.A.W.s for your Nauvis Science factory today! (Delicate when hit by asteroids, we take no liability to placement choices by user)",
+  "quality_required": false
+}
