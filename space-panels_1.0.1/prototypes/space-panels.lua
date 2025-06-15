@@ -17,7 +17,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__space-panels__/graphics/panel_north.png",
+            filename = "__S6Xspace-panels__/graphics/panel_north.png",
             priority = "high",
             width = 480,
             height = 960,
@@ -29,7 +29,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__space-panels__/graphics/panel_east.png",
+            filename = "__S6Xspace-panels__/graphics/panel_east.png",
             priority = "high",
             width = 960,
             height = 480,
@@ -41,7 +41,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__space-panels__/graphics/panel_south.png",
+            filename = "__S6Xspace-panels__/graphics/panel_south.png",
             priority = "high",
             width = 480,
             height = 960,
@@ -53,7 +53,7 @@ local space_panel_graphics = {
     {
         layers =
         {{
-            filename = "__space-panels__/graphics/panel_west.png",
+            filename = "__S6Xspace-panels__/graphics/panel_west.png",
             priority = "high",
             width = 960,
             height = 480,
@@ -62,6 +62,39 @@ local space_panel_graphics = {
         },},
     }
 }
+
+local function create_directional_panel(cdir)
+	local panel = util.table.deepcopy(data.raw["solar-panel"]["solar-panel"])
+	panel.name = "space-solar-panel-" .. cdir
+	panel.minable = {mining_time = 0.1, result = "space-solar-panel"}
+	panel.fast_replaceable_group = "space-solar-panel"
+	panel.localised_name = { "entity-name.space-solar-panel" }
+	panel.localised_description = { "entity-description.space-solar-panel" }
+	panel.icon = "__S6Xspace-panels__/graphics/panel-icon.png"
+    panel.icon_size = 256
+	panel.impact_category = "metal"
+	panel.max_health = 50
+	panel.placeable_by = {item = "space-solar-panel", count = 1}
+	panel.surface_conditions = {
+		{ property = "pressure", min = 0, max = 0 }
+	}
+	panel.production = "600kW"
+	panel.picture = space_panel_graphics[cdir]
+	if (cdir == "north") then
+        panel.selection_box = {{-3.5, -14.5}, {3.5, 0.4}}
+        panel.collision_box = {{-3.4, -14.4}, {3.4, 0.4}}
+	elseif (cdir == "south") then
+        panel.selection_box = {{-3.5, -0.4}, {3.5, 14.5}}
+        panel.collision_box = {{-3.4, -0.4}, {3.4, 14.4}}
+	elseif (cdir == "west") then
+        panel.selection_box = {{-14.5, -3.5}, {0.4, 3.5}}
+        panel.collision_box = {{-14.4, -3.4}, {0.4, 3.4}}	
+	elseif (cdir == "east") then
+        panel.selection_box = {{-0.4, -3.5}, {14.5, 3.5}}
+        panel.collision_box = {{-0.4, -3.4}, {14.4, 3.4}}	
+	end
+	return panel
+end
   
 
 data.extend{
@@ -77,13 +110,13 @@ data.extend{
           {type = "item", name = "low-density-structure", amount = 5}
         },
         results = {{type="item", name="space-solar-panel", amount=1}},
-        icon = "__space-panels__/graphics/panel-icon.png",
+        icon = "__S6Xspace-panels__/graphics/panel-icon.png",
         icon_size = 256,
     },
     {
     type = "item",
     name = "space-solar-panel",
-    icon = "__space-panels__/graphics/panel-icon.png",
+    icon = "__S6Xspace-panels__/graphics/panel-icon.png",
     icon_size = 256,
     subgroup = "space-platform",
     order = "d[solar-panel]-a[space-solar-panel]",
@@ -96,7 +129,7 @@ data.extend{
     {
         type = "electric-energy-interface",
         name = "space-solar-panel",
-        icon = "__space-panels__/graphics/panel-icon.png",
+        icon = "__S6Xspace-panels__/graphics/panel-icon.png",
         icon_size = 256,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 0.1, result = "space-solar-panel"},
@@ -127,7 +160,7 @@ data.extend{
         energy_source = {
             buffer_capacity = "1J",
             type = "electric",
-            usage_priority = "solar",
+            usage_priority = "secondary-output",
         },
 
         --energy_usage = "-600kW", -- Generates power
@@ -139,4 +172,9 @@ data.extend{
         energy_usage = "0kW",
         gui_mode = "none",
     },
+	
+	create_directional_panel("north"),
+	create_directional_panel("south"),
+	create_directional_panel("east"),
+	create_directional_panel("west"),
 }
