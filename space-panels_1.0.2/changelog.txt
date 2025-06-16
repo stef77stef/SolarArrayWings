@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2025-01-06
+  Bugfixes:
+    - Fixed the use of the illegal solar panel prototype, should no longer cause crashes.
+    - Special thanks to S6X / sparkletwist for their contribution!
+	---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2025-01-06
+  Bugfixes:
+    - Recipe now appears correctly in the space platform related menus.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2025-01-03
+  Features:
+    - Added recipe/item/entity for space solar panels.
