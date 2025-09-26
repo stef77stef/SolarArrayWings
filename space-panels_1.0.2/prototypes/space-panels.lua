@@ -93,6 +93,7 @@ local function create_directional_panel(cdir)
         panel.selection_box = {{-0.4, -3.5}, {14.5, 3.5}}
         panel.collision_box = {{-0.4, -3.4}, {14.4, 3.4}}	
 	end
+	panel.next_upgrade = nil
 	return panel
 end
   
